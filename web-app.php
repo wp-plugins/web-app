@@ -23,7 +23,7 @@ function web_app_menu(){
 add_filter('plugin_action_links', 'web_app_settings_link', 2, 2);
 function web_app_settings_link($actions, $file) {
 	if(false !== strpos($file, 'web-app'))
-		$actions['settings'] = '<a href="options-general.php?page=web-app-apple">Settings</a>';
+		$actions['settings'] = '<a href="admin.php?page=web-app-apple">Settings</a>';
 	return $actions;
 }
 
@@ -36,10 +36,10 @@ function register_web_app_settings() {
 	
 	add_settings_section('web_app_icon', 'iOS Icon', 'web_app_iphone_splash', 'web-app-apple');
 	add_settings_field('web_app_ios_icon_60', 'Icon 60px', 'web_app_image_input', 'web-app-apple', 'web_app_icon', array('id' => 'web_app_ios_icon_60'));
-	add_settings_field('web_app_ios_icon_60@2x', 'Icon 60px @2x', 'web_app_image_input', 'web-app-apple', 'web_app_icon', array('id' => 'web_app_ios_icon_60@2x'));
-	add_settings_field('web_app_ios_icon_60@3x', 'Icon 60px @3x', 'web_app_image_input', 'web-app-apple', 'web_app_icon', array('id' => 'web_app_ios_icon_60@3x'));
-	add_settings_field('web_app_ios_icon_76', 'Icon 76px', 'web_app_image_input', 'web_app', 'web-app-apple', array('id' => 'web_app_ios_icon_76'));
-	add_settings_field('web_app_ios_icon_76@2x', 'Icon 76px @2x', 'web_app_image_input', 'web-app-apple', 'web_app_icon', array('id' => 'web_app_ios_icon_76@2x'));
+	add_settings_field('web_app_ios_icon_60_2x', 'Icon 60px @2x', 'web_app_image_input', 'web-app-apple', 'web_app_icon', array('id' => 'web_app_ios_icon_60_2x'));
+	add_settings_field('web_app_ios_icon_60_3x', 'Icon 60px @3x', 'web_app_image_input', 'web-app-apple', 'web_app_icon', array('id' => 'web_app_ios_icon_60_3x'));
+	add_settings_field('web_app_ios_icon_76', 'Icon 76px', 'web_app_image_input', 'web-app-apple', 'web_app_icon', array('id' => 'web_app_ios_icon_76'));
+	add_settings_field('web_app_ios_icon_76_2x', 'Icon 76px @2x', 'web_app_image_input', 'web-app-apple', 'web_app_icon', array('id' => 'web_app_ios_icon_76_2x'));
 	
 	add_settings_section('web_app_iphone_splash', 'iPhone Splash', 'web_app_iphone_splash', 'web-app-apple');
 	add_settings_field('web_app_ios_splash_iphone3', 'iPhone 3', 'web_app_image_input', 'web-app-apple', 'web_app_iphone_splash', array('id' => 'web_app_ios_splash_iphone3'));
@@ -131,10 +131,10 @@ function web_app_add_meta(){
 	
 	/* ICON */
 	$icon60 = (isset($options['web_app_ios_icon_60'])) ? $options['web_app_ios_icon_60'] : '';
-	$icon60_2x = (isset($options['web_app_ios_icon_60@2x'])) ? $options['web_app_ios_icon_60@2x'] : '';
-	$icon60_3x = (isset($options['web_app_ios_icon_60@3x'])) ? $options['web_app_ios_icon_60@3x'] : '';
+	$icon60_2x = (isset($options['web_app_ios_icon_60_2x'])) ? $options['web_app_ios_icon_60_2x'] : '';
+	$icon60_3x = (isset($options['web_app_ios_icon_60_3x'])) ? $options['web_app_ios_icon_60_3x'] : '';
 	$icon76 = (isset($options['web_app_ios_icon_76'])) ? $options['web_app_ios_icon_76'] : '';
-	$icon76_2x = (isset($options['web_app_ios_icon_76@2x'])) ? $options['web_app_ios_icon_76@2x'] : '';
+	$icon76_2x = (isset($options['web_app_ios_icon_76_2x'])) ? $options['web_app_ios_icon_76@_2x'] : '';
 	
 	/* IPHONE */
 	$iphone3 = (isset($options['web_app_ios_splash_iphone3'])) ? $options['web_app_ios_splash_iphone3'] : '';
