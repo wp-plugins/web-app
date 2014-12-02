@@ -14,10 +14,12 @@ defined('ABSPATH') or die("No script kiddies please!");
 /* Register de Plugin in the Admin Menu */
 add_action( 'admin_menu', 'web_app_menu' );
 function web_app_menu(){
-	add_menu_page('Web App', 'Web App', 'manage_options', 'web-app-apple', 'display_admin_page');
+	add_menu_page('Web App', 'Web App', 'manage_options', 'web-app-apple', 'display_admin_page', 'dashicons-smartphone');
 	add_submenu_page( 'web-app-apple', 'Apple Web App Splashes', 'Apple', 'manage_options', 'web-app-apple', 'display_admin_page' );
-	add_submenu_page( 'web-app-apple', 'Android Web App Splashes', 'Android', 'manage_options', 'web-app-android', 'display_admin_page' );
+	/*
+add_submenu_page( 'web-app-apple', 'Android Web App Splashes', 'Android', 'manage_options', 'web-app-android', 'display_admin_page' );
 	add_submenu_page( 'web-app-apple', 'Windows Phone Web App Splashes', 'Windows Phone', 'manage_options', 'web-app-windows', 'display_admin_page' );
+*/
 }
 /*  Register settings link */
 add_filter('plugin_action_links', 'web_app_settings_link', 2, 2);
@@ -34,30 +36,34 @@ add_action( 'admin_init', 'register_web_app_settings' );
 function register_web_app_settings() { 
   register_setting('web_app_options','web_app_options');
 	
-	add_settings_section('web_app_icon', 'iOS Icon', 'web_app_iphone_splash', 'web-app-apple');
-	add_settings_field('web_app_ios_icon_60', 'Icon 60px', 'web_app_image_input', 'web-app-apple', 'web_app_icon', array('id' => 'web_app_ios_icon_60'));
-	add_settings_field('web_app_ios_icon_60_2x', 'Icon 60px @2x', 'web_app_image_input', 'web-app-apple', 'web_app_icon', array('id' => 'web_app_ios_icon_60_2x'));
-	add_settings_field('web_app_ios_icon_60_3x', 'Icon 60px @3x', 'web_app_image_input', 'web-app-apple', 'web_app_icon', array('id' => 'web_app_ios_icon_60_3x'));
-	add_settings_field('web_app_ios_icon_76', 'Icon 76px', 'web_app_image_input', 'web-app-apple', 'web_app_icon', array('id' => 'web_app_ios_icon_76'));
-	add_settings_field('web_app_ios_icon_76_2x', 'Icon 76px @2x', 'web_app_image_input', 'web-app-apple', 'web_app_icon', array('id' => 'web_app_ios_icon_76_2x'));
+	add_settings_section('web_app_icon', 'iOS Icon', 'web_app_icon', 'web-app-apple');
+	add_settings_field('web_app_ios_icon_60', 'Icon 60px', 'web_app_image_input', 'web-app-apple', 'web_app_icon', array('id' => 'web_app_ios_icon_60', 'size' => '60x60'));
+	add_settings_field('web_app_ios_icon_60_2x', 'Icon 60px @2x', 'web_app_image_input', 'web-app-apple', 'web_app_icon', array('id' => 'web_app_ios_icon_60_2x', 'size' => '120x120'));
+	add_settings_field('web_app_ios_icon_60_3x', 'Icon 60px @3x', 'web_app_image_input', 'web-app-apple', 'web_app_icon', array('id' => 'web_app_ios_icon_60_3x', 'size' => '180x180'));
+	add_settings_field('web_app_ios_icon_76', 'Icon 76px', 'web_app_image_input', 'web-app-apple', 'web_app_icon', array('id' => 'web_app_ios_icon_76', 'size' => '76x76'));
+	add_settings_field('web_app_ios_icon_76_2x', 'Icon 76px @2x', 'web_app_image_input', 'web-app-apple', 'web_app_icon', array('id' => 'web_app_ios_icon_76_2x', 'size' => '152x152'));
 	
 	add_settings_section('web_app_iphone_splash', 'iPhone Splash', 'web_app_iphone_splash', 'web-app-apple');
-	add_settings_field('web_app_ios_splash_iphone3', 'iPhone 3', 'web_app_image_input', 'web-app-apple', 'web_app_iphone_splash', array('id' => 'web_app_ios_splash_iphone3'));
-	add_settings_field('web_app_ios_splash_iphone4', 'iPhone 4', 'web_app_image_input', 'web-app-apple', 'web_app_iphone_splash', array('id' => 'web_app_ios_splash_iphone4'));
-	add_settings_field('web_app_ios_splash_iphone5', 'iPhone 5', 'web_app_image_input', 'web-app-apple', 'web_app_iphone_splash', array('id' => 'web_app_ios_splash_iphone5'));
-	add_settings_field('web_app_ios_splash_iphone6_portrait', 'iPhone 6 Portrait', 'web_app_image_input', 'web-app-apple', 'web_app_iphone_splash', array('id' => 'web_app_ios_splash_iphone6_portrait'));
-	add_settings_field('web_app_ios_splash_iphone6_landscape', 'iPhone 6 Landscape', 'web_app_image_input', 'web-app-apple', 'web_app_iphone_splash', array('id' => 'web_app_ios_splash_iphone6_landscape'));
-	add_settings_field('web_app_ios_splash_iphone6plus_portrait', 'iPhone 6+ Portrait', 'web_app_image_input', 'web-app-apple', 'web_app_iphone_splash', array('id' => 'web_app_ios_splash_iphone6plus_portrait'));
-	add_settings_field('web_app_ios_splash_iphone6plus_landscape', 'iPhone 6+ Landscape', 'web_app_image_input', 'web-app-apple', 'web_app_iphone_splash', array('id' => 'web_app_ios_splash_iphone6plus_landscape'));
+	add_settings_field('web_app_ios_splash_iphone3', 'iPhone 3', 'web_app_image_input', 'web-app-apple', 'web_app_iphone_splash', array('id' => 'web_app_ios_splash_iphone3', 'size' => '320x460'));
+	add_settings_field('web_app_ios_splash_iphone4', 'iPhone 4', 'web_app_image_input', 'web-app-apple', 'web_app_iphone_splash', array('id' => 'web_app_ios_splash_iphone4', 'size' => '640x920'));
+	add_settings_field('web_app_ios_splash_iphone5', 'iPhone 5', 'web_app_image_input', 'web-app-apple', 'web_app_iphone_splash', array('id' => 'web_app_ios_splash_iphone5', 'size' => '640x1096'));
+	add_settings_field('web_app_ios_splash_iphone6_portrait', 'iPhone 6 Portrait', 'web_app_image_input', 'web-app-apple', 'web_app_iphone_splash', array('id' => 'web_app_ios_splash_iphone6_portrait', 'size' => '750x1294'));
+	add_settings_field('web_app_ios_splash_iphone6_landscape', 'iPhone 6 Landscape', 'web_app_image_input', 'web-app-apple', 'web_app_iphone_splash', array('id' => 'web_app_ios_splash_iphone6_landscape', 'size' => '710x1334'));
+	add_settings_field('web_app_ios_splash_iphone6plus_portrait', 'iPhone 6+ Portrait', 'web_app_image_input', 'web-app-apple', 'web_app_iphone_splash', array('id' => 'web_app_ios_splash_iphone6plus_portrait', 'size' => '1242x2148'));
+	add_settings_field('web_app_ios_splash_iphone6plus_landscape', 'iPhone 6+ Landscape', 'web_app_image_input', 'web-app-apple', 'web_app_iphone_splash', array('id' => 'web_app_ios_splash_iphone6plus_landscape', 'size' => '1182x2208'));
 	
 	add_settings_section('web_app_ipad_splash', 'iPad Splash', 'web_app_ipad_splash', 'web-app-apple');
-	add_settings_field('web_app_ios_splash_ipad_portrait', 'iPad Portrait', 'web_app_image_input', 'web-app-apple', 'web_app_ipad_splash', array('id' => 'web_app_ios_splash_ipad_portrait'));
-	add_settings_field('web_app_ios_splash_ipad_landscape', 'iPad Landscape', 'web_app_image_input', 'web-app-apple', 'web_app_ipad_splash', array('id' => 'web_app_ios_splash_ipad_landscape'));
-	add_settings_field('web_app_ios_splash_ipad_retina_portrait', 'iPad Retina Portrait', 'web_app_image_input', 'web-app-apple', 'web_app_ipad_splash', array('id' => 'web_app_ios_splash_ipad_retina_portrait'));
-	add_settings_field('web_app_ios_splash_ipad_retina_landscape', 'iPad Retina Landscape', 'web_app_image_input', 'web-app-apple', 'web_app_ipad_splash', array('id' => 'web_app_ios_splash_ipad_retina_landscape'));
+	add_settings_field('web_app_ios_splash_ipad_portrait', 'iPad Portrait', 'web_app_image_input', 'web-app-apple', 'web_app_ipad_splash', array('id' => 'web_app_ios_splash_ipad_portrait', 'size' => '768x1004'));
+	add_settings_field('web_app_ios_splash_ipad_landscape', 'iPad Landscape', 'web_app_image_input', 'web-app-apple', 'web_app_ipad_splash', array('id' => 'web_app_ios_splash_ipad_landscape', 'size' => '748x1024'));
+	add_settings_field('web_app_ios_splash_ipad_retina_portrait', 'iPad Retina Portrait', 'web_app_image_input', 'web-app-apple', 'web_app_ipad_splash', array('id' => 'web_app_ios_splash_ipad_retina_portrait', 'size' => '1536x2008'));
+	add_settings_field('web_app_ios_splash_ipad_retina_landscape', 'iPad Retina Landscape', 'web_app_image_input', 'web-app-apple', 'web_app_ipad_splash', array('id' => 'web_app_ios_splash_ipad_retina_landscape', 'size' => '1496x2048'));
 }
 
 /* description text */
+function web_app_icon(){
+	?>
+	<?php
+}
 function web_app_iphone_splash(){
 	?>
 	<?php
@@ -74,8 +80,9 @@ function web_app_image_input(array $args){
 	$url = (isset($options[$args['id']])) ? $options[$args['id']] : '';
 	$url = esc_textarea($url); //sanitise output
 ?>
- 	<input id="<?php echo $args['id']?>" type="text" size="36" name="web_app_options[<?php echo $args['id']?>]" value="<?php echo $url; ?>" />
- 	<input class="img_button" data-rel="<?php echo $args['id']?>" type="button" value="<?php _e('Upload Image','web-app');?>" />    
+	<input id="<?php echo $args['id']?>" type="text" size="36" name="web_app_options[<?php echo $args['id']?>]" value="<?php echo $url; ?>" />
+ 	<input class="img_button" data-rel="<?php echo $args['id']?>" type="button" value="<?php _e('Upload Image','web-app');?>" />
+ 	<span class="size"><?php echo $args['size'];?>px</span>
 <?php
 }
 
@@ -104,7 +111,7 @@ function display_admin_page(){
 	<div id="web-app" class="wrap">
 		<?php screen_icon();?>
 		<a href="http://www.pixelonce.com" target="_blank">
-			<h1> 
+			<h1>
 				<span class="logo">pixel<span style="color:#bada55;">o</span><span style="color:#95ad4b;">n</span><span style="color:#708239;">c</span><span style="color:#4a5625;">e</span>
 			</h1>
 		</a>		
