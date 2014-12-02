@@ -7,6 +7,7 @@
  * Author: Pixelonce
  * Author URI: http://www.pixelonce.com
  * Text Domain: web-app
+ * Domain Path: /languages
  */
 
 defined('ABSPATH') or die("No script kiddies please!");
@@ -25,7 +26,7 @@ add_submenu_page( 'web-app-apple', 'Android Web App Splashes', 'Android', 'manag
 add_filter('plugin_action_links', 'web_app_settings_link', 2, 2);
 function web_app_settings_link($actions, $file) {
 	if(false !== strpos($file, 'web-app'))
-		$actions['settings'] = '<a href="admin.php?page=web-app-apple">Settings</a>';
+		$actions['settings'] = '<a href="admin.php?page=web-app-apple">'.__('Settings','web-app').'</a>';
 	return $actions;
 }
 
@@ -36,7 +37,7 @@ add_action( 'admin_init', 'register_web_app_settings' );
 function register_web_app_settings() { 
   register_setting('web_app_options','web_app_options');
 	
-	add_settings_section('web_app_general', 'General Options', 'web_app_general', 'web-app-apple');
+	add_settings_section('web_app_general', __('General Options','web-app'), 'web_app_general', 'web-app-apple');
 	add_settings_field('web_app_general_text', 'Title', 'web_app_text_input', 'web-app-apple', 'web_app_general', array('id' => 'web_app_general_text'));
 	
 	add_settings_section('web_app_icon', 'iOS Icon', 'web_app_icon', 'web-app-apple');
@@ -63,6 +64,10 @@ function register_web_app_settings() {
 }
 
 /* description text */
+function web_app_general(){
+	?>
+	<?php
+}
 function web_app_icon(){
 	?>
 	<?php
@@ -136,7 +141,7 @@ function display_admin_page(){
 			?>
 			</form>
 		<?php }	else{ ?>
-			<div>COMING SOON...</div>
+			<div><?php _e('Coming soon','web-app'); ?></div>
 		<?php }	?>
 	</div>
 	<?php
