@@ -36,6 +36,9 @@ add_action( 'admin_init', 'register_web_app_settings' );
 function register_web_app_settings() { 
   register_setting('web_app_options','web_app_options');
 	
+	add_settings_section('web_app_general', 'General Options', 'web_app_general', 'web-app-apple');
+	add_settings_field('web_app_general_text', 'Title', 'web_app_text_input', 'web-app-apple', 'web_app_general', array('id' => 'web_app_general_text'));
+	
 	add_settings_section('web_app_icon', 'iOS Icon', 'web_app_icon', 'web-app-apple');
 	add_settings_field('web_app_ios_icon_60', 'Icon 60px', 'web_app_image_input', 'web-app-apple', 'web_app_icon', array('id' => 'web_app_ios_icon_60', 'size' => '60x60'));
 	add_settings_field('web_app_ios_icon_60_2x', 'Icon 60px @2x', 'web_app_image_input', 'web-app-apple', 'web_app_icon', array('id' => 'web_app_ios_icon_60_2x', 'size' => '120x120'));
@@ -44,9 +47,9 @@ function register_web_app_settings() {
 	add_settings_field('web_app_ios_icon_76_2x', 'Icon 76px @2x', 'web_app_image_input', 'web-app-apple', 'web_app_icon', array('id' => 'web_app_ios_icon_76_2x', 'size' => '152x152'));
 	
 	add_settings_section('web_app_iphone_splash', 'iPhone Splash', 'web_app_iphone_splash', 'web-app-apple');
-	add_settings_field('web_app_ios_splash_iphone3', 'iPhone 3', 'web_app_image_input', 'web-app-apple', 'web_app_iphone_splash', array('id' => 'web_app_ios_splash_iphone3', 'size' => '320x460'));
-	add_settings_field('web_app_ios_splash_iphone4', 'iPhone 4', 'web_app_image_input', 'web-app-apple', 'web_app_iphone_splash', array('id' => 'web_app_ios_splash_iphone4', 'size' => '640x920'));
-	add_settings_field('web_app_ios_splash_iphone5', 'iPhone 5', 'web_app_image_input', 'web-app-apple', 'web_app_iphone_splash', array('id' => 'web_app_ios_splash_iphone5', 'size' => '640x1096'));
+	add_settings_field('web_app_ios_splash_iphone3', 'iPhone 3 | 3G', 'web_app_image_input', 'web-app-apple', 'web_app_iphone_splash', array('id' => 'web_app_ios_splash_iphone3', 'size' => '320x460'));
+	add_settings_field('web_app_ios_splash_iphone4', 'iPhone 4 | 4S', 'web_app_image_input', 'web-app-apple', 'web_app_iphone_splash', array('id' => 'web_app_ios_splash_iphone4', 'size' => '640x920'));
+	add_settings_field('web_app_ios_splash_iphone5', 'iPhone 5 | 5S', 'web_app_image_input', 'web-app-apple', 'web_app_iphone_splash', array('id' => 'web_app_ios_splash_iphone5', 'size' => '640x1096'));
 	add_settings_field('web_app_ios_splash_iphone6_portrait', 'iPhone 6 Portrait', 'web_app_image_input', 'web-app-apple', 'web_app_iphone_splash', array('id' => 'web_app_ios_splash_iphone6_portrait', 'size' => '750x1294'));
 	add_settings_field('web_app_ios_splash_iphone6_landscape', 'iPhone 6 Landscape', 'web_app_image_input', 'web-app-apple', 'web_app_iphone_splash', array('id' => 'web_app_ios_splash_iphone6_landscape', 'size' => '710x1334'));
 	add_settings_field('web_app_ios_splash_iphone6plus_portrait', 'iPhone 6+ Portrait', 'web_app_image_input', 'web-app-apple', 'web_app_iphone_splash', array('id' => 'web_app_ios_splash_iphone6plus_portrait', 'size' => '1242x2148'));
@@ -75,6 +78,15 @@ function web_app_ipad_splash(){
 
 
 /* INPUTS */
+function web_app_text_input(array $args){
+	$options = get_option('web_app_options');
+	$url = (isset($options[$args['id']])) ? $options[$args['id']] : '';
+	$url = esc_textarea($url); //sanitise output
+?>
+	<input id="<?php echo $args['id']?>" type="text" size="36" name="web_app_options[<?php echo $args['id']?>]" value="<?php echo $url; ?>" />
+<?php
+}
+
 function web_app_image_input(array $args){
 	$options = get_option('web_app_options');
 	$url = (isset($options[$args['id']])) ? $options[$args['id']] : '';
@@ -136,6 +148,9 @@ function web_app_add_meta(){
 	
 	$options = get_option('web_app_options');
 	
+	/* GENERAL */
+	$general_title = (isset($options['web_app_general_text'])) ? $options['web_app_general_text'] : '';
+	
 	/* ICON */
 	$icon60 = (isset($options['web_app_ios_icon_60'])) ? $options['web_app_ios_icon_60'] : '';
 	$icon60_2x = (isset($options['web_app_ios_icon_60_2x'])) ? $options['web_app_ios_icon_60_2x'] : '';
@@ -164,9 +179,10 @@ function web_app_add_meta(){
 	?>
 	
 	<!-- Load It Like A Native App -->
+	<?php if ($general_title != '') { ?><meta name="apple-mobile-web-app-title" content="<?php echo $general_title;?>"><?php } ?>
 	<meta name="apple-touch-fullscreen" content="yes">
 	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="default">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 	
 	<!-- ICONOS IPHONE/IPAD WEB APP -->
 	<link href="<?php echo esc_attr($icon60); ?>" sizes="60x60" rel="apple-touch-icon-precomposed"/>
@@ -175,25 +191,26 @@ function web_app_add_meta(){
 	<link href="<?php echo esc_attr($icon76); ?>" sizes="152x152" rel="apple-touch-icon-precomposed"/>
 	<link href="<?php echo esc_attr($icon76_2x); ?>" sizes="180x180" rel="apple-touch-icon-precomposed"/>
 	
-	<!-- /* iPhone 3 and 4 Non-Retina */ -->
-	<link href="<?php echo esc_attr($iphone3); ?>" rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)">
-	<!-- /* iPhone 4 Retina */ -->
-	<link href="<?php echo esc_attr($iphone4); ?>" rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)">
-	<!-- /* iPhone 5 Retina */ -->
-	<link href="<?php echo esc_attr($iphone5); ?>" rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)">
-	<!-- iPhone 6 Retina -->
-	<link href="<?php echo esc_attr($iphone6_portrait); ?>" rel="apple-touch-startup-image" media="(max-device-width: 375px) and (max-device-height: 667px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)">
-	<link href="<?php echo esc_attr($iphone6_landscape); ?>" rel="apple-touch-startup-image" media="(max-device-width: 375px) and (max-device-height: 667px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)">
-	<!-- iPhone 6 Plus Retina -->
-	<link href="<?php echo esc_attr($iphone6plus_portrait); ?>" rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)">
-	<link href="<?php echo esc_attr($iphone6plus_landscape); ?>" rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3)">
-	<!-- /* iPad Non-Retina */ -->
-	<link href="<?php echo esc_attr($ipad_portrait); ?>" rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" >
-	<link href="<?php echo esc_attr($ipad_landscape); ?>" rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)">
 	<!-- /* iPad Retina */ -->
 	<link href="<?php echo esc_attr($ipad_retina_portrait); ?>" rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)">
 	<link href="<?php echo esc_attr($ipad_retina_landscape); ?>" rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)">
-
+	<!-- /* iPad Non-Retina */ -->
+	<link href="<?php echo esc_attr($ipad_portrait); ?>" rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" >
+	<link href="<?php echo esc_attr($ipad_landscape); ?>" rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)">
+	
+	<!-- iPhone 6 Retina -->
+	<link href="<?php echo esc_attr($iphone6_portrait); ?>" rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)">
+	<link href="<?php echo esc_attr($iphone6_landscape); ?>" rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)">
+	<!-- iPhone 6 Plus Retina -->
+	<link href="<?php echo esc_attr($iphone6plus_portrait); ?>" rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)">
+	<link href="<?php echo esc_attr($iphone6plus_landscape); ?>" rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3)">
+	
+	<!-- /* iPhone 5 Retina */ -->
+	<link href="<?php echo esc_attr($iphone5); ?>" rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)">
+	<!-- /* iPhone 4 Retina */ -->
+	<link href="<?php echo esc_attr($iphone4); ?>" rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)">
+	<!-- /* iPhone 3 and 4 Non-Retina */ -->
+	<link href="<?php echo esc_attr($iphone3); ?>" rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)">
 	
 	<?php
 }
