@@ -33,8 +33,9 @@ Compatible with:
 
 
 == Installation ==
-1. Place the 'web-app' folder under the plugins directory.
+1. Place the \'web-app\' folder under the plugins directory.
 2. Go to the plugins directory and activate it.
+3. Go to \'Web App\' page in the admin menu and fill in the information.
 
 == Frequently Asked Questions ==
 Q: Do I have to insert meta content?
@@ -43,12 +44,21 @@ A: No, the plugin automatically does it for you
 Q: Does the plugin crop the images to the detailed sizes?
 A: No, the plugin only saves the images links.
 
+Q: Does the plugin crop the images to the detailed sizes?
+A: No, the plugin only saves the images links.
+
 == Screenshots ==
 1. Apple Splash Screens
 
 == Changelog ==
+Version 1.0.2
+Added Localization: English, Spanish
+
 Version 1.0.1
 Added Title Options
 
 Version 1.0.0
 Initial version. All iOS Devices support.
+
+== Upgrade Notice ==
+Added Localization Support. Web-App now supports Spanish!
