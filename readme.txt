@@ -1,15 +1,4 @@
-=== Web App ===
-Contributors: pixelonce
-Tags: Web App, Web App Splash, Splash Screen, Apple Mobile Web App, Apple Touch Icon Precomposed, Apple Touch Startup Image 
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=5WPXGDEDYEXRC&lc=ES&item_name=Web%20App%20Plugin¤cy_code=EUR&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
-Requires at least: 4.0.1
-Tested up to: 4.0.1
-License: https://wordpress.org/about/gpl/
-
-This plugins helps you insert the necessary meta content to make your website save to the home screen of your iOS Devices as a Web App.
-
-== Description ==
-This plugins helps you insert the necessary meta content to make your website save to the home screen of your iOS Devices as a Web App.
+insert the necessary meta content to make your website save to the home screen of your iOS Devices as a Web App.
 
 Compatible with:
 
@@ -47,5 +36,8 @@ A: No, the plugin only saves the images links.
 1. Apple Splash Screens
 
 == Changelog ==
+Version 1.0.1
+Added Title Options
+
 Version 1.0.0
 Initial version. All iOS Devices support.
