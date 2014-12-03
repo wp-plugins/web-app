@@ -1,0 +1,29 @@
+@font-face {
+  font-family: 'pixel11';
+  src: url('./fonts/Pixel11-Regular.eot');
+  src: url('./fonts/Pixel11-Regular.eot?#iefix') format('embedded-opentype'),
+       url('./fonts/Pixel11-Regular.woff') format('woff'),
+       url('./fonts/Pixel11-Regular.ttf') format('truetype'),
+       url('./fonts/Pixel11-Regular.svg#pixel11regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+#wpbody-content #web-app a{
+	text-decoration: none!important;
+	margin-bottom: 50px;
+	display: block;
+}
+#wpbody-content #web-app .logo{
+	font-family: 'pixel11';
+	text-decoration: none!important;
+	color: #333;
+}
+#wpbody-content #web-app h3{
+	border-bottom: 1px solid #999;
+	margin-bottom: 0px;
+	padding-bottom: 5px;
+}
+#wpbody-content #web-app .size{
+	margin-left: 15px;
+	color: #888;
+}
