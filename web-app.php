@@ -7,7 +7,7 @@
  * Author: Pixelonce
  * Author URI: http://www.pixelonce.com
  * Text Domain: web-app
- * Domain Path: /languages
+ * Domain Path: localization/
  */
 
 defined('ABSPATH') or die("No script kiddies please!");
@@ -38,7 +38,7 @@ function register_web_app_settings() {
   register_setting('web_app_options','web_app_options');
 	
 	add_settings_section('web_app_general', __('General Options','web-app'), 'web_app_general', 'web-app-apple');
-	add_settings_field('web_app_general_text', 'Title', 'web_app_text_input', 'web-app-apple', 'web_app_general', array('id' => 'web_app_general_text'));
+	add_settings_field('web_app_general_text',__('Title','web-app'), 'web_app_text_input', 'web-app-apple', 'web_app_general', array('id' => 'web_app_general_text'));
 	
 	add_settings_section('web_app_icon', 'iOS Icon', 'web_app_icon', 'web-app-apple');
 	add_settings_field('web_app_ios_icon_60', 'Icon 60px', 'web_app_image_input', 'web-app-apple', 'web_app_icon', array('id' => 'web_app_ios_icon_60', 'size' => '60x60'));
@@ -118,8 +118,11 @@ function my_admin_styles() {
 if (isset($_GET['page'])) {
 	add_action('admin_print_scripts', 'my_admin_scripts');
 	add_action('admin_print_styles', 'my_admin_styles');
-	load_plugin_textdomain('web-app', false, basename( dirname( __FILE__ ) ) . '/languages' );
 }
+
+$plugin_dir = basename(dirname(__FILE__));
+load_plugin_textdomain('web-app','wp-content/plugins/'.$plugin_dir.'/localization',$plugin_dir.'/localization');
+
 
 function display_admin_page(){
 	if ( !current_user_can( 'manage_options' ) )  {
@@ -137,7 +140,7 @@ function display_admin_page(){
 			<?php
 				settings_fields('web_app_options');
 				do_settings_sections($_GET['page']); 
-				submit_button('Save options', 'primary', 'web_app_options_submit');
+				submit_button(__('Save options','web-app'), 'primary', 'web_app_options_submit');
 			?>
 			</form>
 		<?php }	else{ ?>
