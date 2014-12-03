@@ -1,7 +1,8 @@
 === Web App ===
 Contributors: pixelonce
 Tags: Web App, Web App Splash, Splash Screen, Apple Mobile Web App, Apple Touch Icon Precomposed, Apple Touch Startup Image 
-Requires at least: 3.5
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=5WPXGDEDYEXRC&lc=ES&item_name=Web%20App%20Plugin¤cy_code=EUR&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
+Requires at least: 4.0.1
 Tested up to: 4.0.1
 License: https://wordpress.org/about/gpl/
 
@@ -34,7 +35,6 @@ Compatible with:
 == Installation ==
 1. Place the \'web-app\' folder under the plugins directory.
 2. Go to the plugins directory and activate it.
-3. Go to \'Web App\' Page in the admin menu and select the photos via media gallery
 
 == Frequently Asked Questions ==
 Q: Do I have to insert meta content?
@@ -43,16 +43,9 @@ A: No, the plugin automatically does it for you
 Q: Does the plugin crop the images to the detailed sizes?
 A: No, the plugin only saves the images links.
 
-Q: How do I know the sizes for each splash screen?
-A: Sizes are indicated next to each field
-
 == Screenshots ==
 1. Apple Splash Screens
 
 == Changelog ==
-Version 1.0.1
-Added Screenshots
-Added Icons
-
 Version 1.0.0
 Initial version. All iOS Devices support.
