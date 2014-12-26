@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Web App
  * Description: Create your splash screens for web apps at a glance
- * Version: 1.0.2
+ * Version: 1.0.4
  * Author: Pixelonce
  * Author URI: http://www.pixelonce.com
  * Text Domain: web-app
