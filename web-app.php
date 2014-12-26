@@ -192,32 +192,32 @@ function web_app_add_meta(){
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 	
 	<!-- ICONOS IPHONE/IPAD WEB APP -->
-	<link href="<?php echo esc_attr($icon60); ?>" sizes="60x60" rel="apple-touch-icon-precomposed"/>
-	<link href="<?php echo esc_attr($icon60_2x); ?>" sizes="120x120" rel="apple-touch-icon-precomposed"/>
-	<link href="<?php echo esc_attr($icon60_3x); ?>" sizes="76x76" rel="apple-touch-icon-precomposed"/>
-	<link href="<?php echo esc_attr($icon76); ?>" sizes="152x152" rel="apple-touch-icon-precomposed"/>
-	<link href="<?php echo esc_attr($icon76_2x); ?>" sizes="180x180" rel="apple-touch-icon-precomposed"/>
+	<?php if ($icon60 != '') { ?><link href="<?php echo esc_attr($icon60); ?>" sizes="60x60" rel="apple-touch-icon-precomposed"/><?php } ?>
+	<?php if ($icon60_2x != '') { ?><link href="<?php echo esc_attr($icon60_2x); ?>" sizes="120x120" rel="apple-touch-icon-precomposed"/><?php } ?>
+	<?php if ($icon60_3x != '') { ?><link href="<?php echo esc_attr($icon60_3x); ?>" sizes="76x76" rel="apple-touch-icon-precomposed"/><?php } ?>
+	<?php if ($icon76 != '') { ?><link href="<?php echo esc_attr($icon76); ?>" sizes="152x152" rel="apple-touch-icon-precomposed"/><?php } ?>
+	<?php if ($icon76_2x != '') { ?><link href="<?php echo esc_attr($icon76_2x); ?>" sizes="180x180" rel="apple-touch-icon-precomposed"/><?php } ?>
 	
 	<!-- /* iPad Retina */ -->
-	<link href="<?php echo esc_attr($ipad_retina_portrait); ?>" rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)">
-	<link href="<?php echo esc_attr($ipad_retina_landscape); ?>" rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)">
+	<?php if ($ipad_retina_portrait != '') { ?><link href="<?php echo esc_attr($ipad_retina_portrait); ?>" rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)"><?php } ?>
+	<?php if ($ipad_retina_landscape != '') { ?><link href="<?php echo esc_attr($ipad_retina_landscape); ?>" rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)"><?php } ?>
 	<!-- /* iPad Non-Retina */ -->
-	<link href="<?php echo esc_attr($ipad_portrait); ?>" rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" >
-	<link href="<?php echo esc_attr($ipad_landscape); ?>" rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)">
+	<?php if ($ipad_portrait != '') { ?><link href="<?php echo esc_attr($ipad_portrait); ?>" rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" ><?php } ?>
+	<?php if ($ipad_landscape != '') { ?><link href="<?php echo esc_attr($ipad_landscape); ?>" rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)"><?php } ?>
 	
 	<!-- iPhone 6 Retina -->
-	<link href="<?php echo esc_attr($iphone6_portrait); ?>" rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)">
-	<link href="<?php echo esc_attr($iphone6_landscape); ?>" rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)">
+	<?php if ($iphone6_portrait != '') { ?><link href="<?php echo esc_attr($iphone6_portrait); ?>" rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)"><?php } ?>
+	<?php if ($iphone6_landscape != '') { ?><link href="<?php echo esc_attr($iphone6_landscape); ?>" rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)"><?php } ?>
 	<!-- iPhone 6 Plus Retina -->
-	<link href="<?php echo esc_attr($iphone6plus_portrait); ?>" rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)">
-	<link href="<?php echo esc_attr($iphone6plus_landscape); ?>" rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3)">
+	<?php if ($iphone6plus_portrait != '') { ?><link href="<?php echo esc_attr($iphone6plus_portrait); ?>" rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)"><?php } ?>
+	<?php if ($iphone6plus_landscape != '') { ?><link href="<?php echo esc_attr($iphone6plus_landscape); ?>" rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3)"><?php } ?>
 	
 	<!-- /* iPhone 5 Retina */ -->
-	<link href="<?php echo esc_attr($iphone5); ?>" rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)">
+	<?php if ($iphone5 != '') { ?><link href="<?php echo esc_attr($iphone5); ?>" rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"><?php } ?>
 	<!-- /* iPhone 4 Retina */ -->
-	<link href="<?php echo esc_attr($iphone4); ?>" rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)">
+	<?php if ($iphone4 != '') { ?><link href="<?php echo esc_attr($iphone4); ?>" rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)"><?php } ?>
 	<!-- /* iPhone 3 and 4 Non-Retina */ -->
-	<link href="<?php echo esc_attr($iphone3); ?>" rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)">
+	<?php if ($iphone3 != '') { ?><link href="<?php echo esc_attr($iphone3); ?>" rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)"><?php } ?>
 	
 	<?php
 }
