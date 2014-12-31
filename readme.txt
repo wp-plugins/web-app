@@ -68,4 +68,4 @@ Version 1.0.0
 Initial version. All iOS Devices support.
 
 == Upgrade Notice ==
-Added Localization Support. Web-App now supports Spanish!
+Fixed Minor Bugs related with meta information
