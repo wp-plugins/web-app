@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Web App
  * Description: Create your splash screens for web apps at a glance
- * Version: 1.0.4
+ * Version: 1.0.5
  * Author: Pixelonce
  * Author URI: http://www.pixelonce.com
  * Text Domain: web-app
@@ -194,9 +194,9 @@ function web_app_add_meta(){
 	<!-- ICONOS IPHONE/IPAD WEB APP -->
 	<?php if ($icon60 != '') { ?><link href="<?php echo esc_attr($icon60); ?>" sizes="60x60" rel="apple-touch-icon-precomposed"/><?php } ?>
 	<?php if ($icon60_2x != '') { ?><link href="<?php echo esc_attr($icon60_2x); ?>" sizes="120x120" rel="apple-touch-icon-precomposed"/><?php } ?>
-	<?php if ($icon60_3x != '') { ?><link href="<?php echo esc_attr($icon60_3x); ?>" sizes="76x76" rel="apple-touch-icon-precomposed"/><?php } ?>
-	<?php if ($icon76 != '') { ?><link href="<?php echo esc_attr($icon76); ?>" sizes="152x152" rel="apple-touch-icon-precomposed"/><?php } ?>
-	<?php if ($icon76_2x != '') { ?><link href="<?php echo esc_attr($icon76_2x); ?>" sizes="180x180" rel="apple-touch-icon-precomposed"/><?php } ?>
+	<?php if ($icon60_3x != '') { ?><link href="<?php echo esc_attr($icon60_3x); ?>" sizes="180x180" rel="apple-touch-icon-precomposed"/><?php } ?>
+	<?php if ($icon76 != '') { ?><link href="<?php echo esc_attr($icon76); ?>" sizes="76x76" rel="apple-touch-icon-precomposed"/><?php } ?>
+	<?php if ($icon76_2x != '') { ?><link href="<?php echo esc_attr($icon76_2x); ?>" sizes="152x152" rel="apple-touch-icon-precomposed"/><?php } ?>
 	
 	<!-- /* iPad Retina */ -->
 	<?php if ($ipad_retina_portrait != '') { ?><link href="<?php echo esc_attr($ipad_retina_portrait); ?>" rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)"><?php } ?>
