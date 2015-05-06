@@ -175,7 +175,7 @@ function web_app_add_meta(){
 	$iphone6plus_landscape = (isset($options['web_app_ios_splash_iphone6plus_landscape'])) ? $options['web_app_ios_splash_iphone6plus_landscape'] : '';
 
 	/* IPAD */
-	$ipad_portait = (isset($options['web_app_ios_splash_ipad_portrait'])) ? $options['web_app_ios_splash_ipad_portrait'] : '';
+	$ipad_portrait = (isset($options['web_app_ios_splash_ipad_portrait'])) ? $options['web_app_ios_splash_ipad_portrait'] : '';
 	$ipad_landscape = (isset($options['web_app_ios_splash_ipad_landscape'])) ? $options['web_app_ios_splash_ipad_landscape'] : '';
 	$ipad_retina_portrait = (isset($options['web_app_ios_splash_ipad_retina_portrait'])) ? $options['web_app_ios_splash_ipad_retina_portrait'] : '';
 	$ipad_retina_landscape = (isset($options['web_app_ios_splash_ipad_retina_landscape'])) ? $options['web_app_ios_splash_ipad_retina_landscape'] : '';
