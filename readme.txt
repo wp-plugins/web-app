@@ -52,6 +52,9 @@ A: No, the plugin only saves the images links.
 1. Apple Splash Screens
 
 == Changelog ==
+Version 1.0.6
+Fix Ipad Non-Retina Portrait
+
 Version 1.0.5
 Fixed Minor Bugs related with icons meta thanks to @srdonvito
 
@@ -71,4 +74,4 @@ Version 1.0.0
 Initial version. All iOS Devices support.
 
 == Upgrade Notice ==
-Fixed Minor Bugs related with icons meta thanks to @srdonvito
+Fix Ipad Non-Retina Portrait
