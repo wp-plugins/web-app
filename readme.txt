@@ -57,7 +57,7 @@ A: No, the plugin only saves the images links.
 
 == Changelog ==
 Version 1.0.6
-Added support for Android Homescreen Icons
+Fix Ipad Non-Retina Portrait
 
 Version 1.0.5
 Fixed Minor Bugs related with icons meta thanks to @srdonvito
@@ -78,4 +78,4 @@ Version 1.0.0
 Initial version. All iOS Devices support.
 
 == Upgrade Notice ==
-Added support for Android Homescreen Icons
+Fix Ipad Non-Retina Portrait
