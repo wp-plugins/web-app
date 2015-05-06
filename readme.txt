@@ -1,9 +1,9 @@
 === Web App ===
 Contributors: pixelonce
-Tags: Web App, Web App Splash, Splash Screen, Apple Mobile Web App, Apple Touch Icon Precomposed, Apple Touch Startup Image 
+Tags: Web App, Web App Splash, Splash Screen, Apple Mobile Web App, Apple Touch Icon Precomposed, Apple Touch Startup Image
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=5WPXGDEDYEXRC&lc=ES&item_name=Web%20App%20Plugin¤cy_code=EUR&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Requires at least: 3.5
-Tested up to: 4.1
+Tested up to: 4.2
 Stable tag: 1.0.6
 License: https://wordpress.org/about/gpl/
 
