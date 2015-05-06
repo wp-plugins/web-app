@@ -4,15 +4,20 @@ Tags: Web App, Web App Splash, Splash Screen, Apple Mobile Web App, Apple Touch 
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=5WPXGDEDYEXRC&lc=ES&item_name=Web%20App%20Plugin¤cy_code=EUR&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Requires at least: 3.5
 Tested up to: 4.1
-Stable tag: 1.0.5
+Stable tag: 1.0.6
 License: https://wordpress.org/about/gpl/
 
-This plugins helps you insert the necessary meta content to make your website save to the home screen of your iOS Devices as a Web App.
+This plugins helps you insert the necessary meta content to make your website save to the home screen of your iOS and Android Devices as a Web App.
 
 == Description ==
-This plugins helps you insert the necessary meta content to make your website save to the home screen of your iOS Devices as a Web App.
+This plugins helps you insert the necessary meta content to make your website save to the home screen of your iOS and Android Devices as a Web App.
 
-Compatible with:
+Home Screen Icons Compatible with:
+
+- iOS
+- Android
+
+Startup Screens Compatible with:
 
 - iPhone 3
 - iPhone 4
@@ -30,7 +35,6 @@ Compatible with:
 - iPad Mini 3
 - iPad Air
 - iPad Air 2
-
 
 
 == Installation ==
@@ -52,6 +56,9 @@ A: No, the plugin only saves the images links.
 1. Apple Splash Screens
 
 == Changelog ==
+Version 1.0.6
+Added support for Android Homescreen Icons
+
 Version 1.0.5
 Fixed Minor Bugs related with icons meta thanks to @srdonvito
 
@@ -71,4 +78,4 @@ Version 1.0.0
 Initial version. All iOS Devices support.
 
 == Upgrade Notice ==
-Fixed Minor Bugs related with icons meta thanks to @srdonvito
+Added support for Android Homescreen Icons
